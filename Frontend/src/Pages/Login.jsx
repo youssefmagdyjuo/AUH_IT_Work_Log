@@ -12,6 +12,11 @@ export default function Login() {
             const res = await axios.post(`${import.meta.env.VITE_BACKEND_BASEURL}/auth/login`, {
                 username,
                 password
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                withCredentials: true // لو محتاج cookie-based auth
             });
 
             localStorage.setItem("token", res.data.token);
@@ -32,7 +37,7 @@ export default function Login() {
                 <h2>Login</h2>
                 <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
                 <Input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <Button name="Login" classStyle="btn_primary" type="submit"/>
+                <Button name="Login" classStyle="btn_primary" type="submit" />
             </form>
         </div>
     )
