@@ -3,7 +3,8 @@ import LogoutButton from "./LogoutButton";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
+const storedUser = localStorage.getItem("user");
+const user = storedUser ? JSON.parse(storedUser) : null;
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
@@ -22,7 +23,7 @@ const NavBar = () => {
                 <div className="flex gap-4">
                     <div className="user">
                         <span><i class="fa-solid fa-user"></i></span>
-                        {user.username}
+                        {user?.username}
                     </div>
                     <LogoutButton />
                 </div>
