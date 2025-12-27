@@ -15,7 +15,7 @@ export default function Register() {
     const handleRegister = async (e) => {
         e.preventDefault(); 
         try {
-            const res = await axios.post("http://localhost:3000/auth/register", {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_BASEURL}/auth/register`, {
                 username,
                 password,
             }, {
