@@ -10,7 +10,13 @@ __pycache__/
 *.class
 *.jar
 .env
-
+# Environment variables
+frontend/. env
+frontend/.env. local
+frontend/.env.*.local
+backend/. env
+backend/.env.local
+backend/.env.*.local
 # Logs
 *.log
 
