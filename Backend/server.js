@@ -14,6 +14,9 @@ app.use(cors({
 }));
 app.use('/logs', router);
 app.use('/auth', require('./routes/authRoutes'));
+app.get('/', (req, res) => {
+    res.send('Backend is running. Use /auth or /logs for API.');
+});
 
 //connect to MongoDB
 mongoose.connect("mongodb+srv://logs_youusefMagdy:lSYoyIOTVeZWZZ4P@logs.ufz984y.mongodb.net/?appName=logs")
