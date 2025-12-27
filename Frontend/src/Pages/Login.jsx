@@ -12,11 +12,6 @@ export default function Login() {
             const res = await axios.post(`${import.meta.env.VITE_BACKEND_BASEURL}/auth/login`, {
                 username,
                 password
-            }, {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                withCredentials: true // لو محتاج cookie-based auth
             });
 
             localStorage.setItem("token", res.data.token);
