@@ -7,20 +7,25 @@ import LogoutButton from '../Components/LogoutButton.jsx';
 import NotAllow from '../Components/NotAllow.jsx';
 export default function Home() {
     // fetch user role from localStorage
-    const user = JSON.parse(localStorage.getItem("user"));
-    const isOwner = user?.role === "owner";
+    const storedUser = localStorage.getItem("user");
+    const user = storedUser ? JSON.parse(storedUser) : null;
+    const isOwner = user && user.role === "owner";
 
     const dispatch = useDispatch();
     const log = useSelector((state) => state.log);
     const handleSave = async () => {
         try {
-            const { data } = await axios.post('http://localhost:3000/logs', log);
+            const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_BASEURL}/logs`, log);
             console.log(data);
         } catch (error) {
             console.log(error)
         }
         dispatch(clearLog());
     }
+    if (!user) {
+        return <NotAllow text={"Please login first"} />;
+    }
+
     if (!isOwner) return <NotAllow text={"Only the owner can create new logs"} />
 
     return (
