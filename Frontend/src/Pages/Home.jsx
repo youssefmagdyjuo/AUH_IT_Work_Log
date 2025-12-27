@@ -2,13 +2,13 @@ import axios from 'axios';
 import Button from '../Components/Button';
 import Textarea from '../Components/Textarea';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateTasks, updateNotes, clearLog } from '../features/Log/logSlice.js';
+import { updateTasks, updateNotes, clearLog } from '../features/logg/logSlice.js';
 import LogoutButton from '../Components/LogoutButton.jsx';
 import NotAllow from '../Components/NotAllow.jsx';
 export default function Home() {
     // fetch user role from localStorage
     const user = JSON.parse(localStorage.getItem("user"));
-    const isOwner = user?.role === "owner"; 
+    const isOwner = user?.role === "owner";
 
     const dispatch = useDispatch();
     const log = useSelector((state) => state.log);
