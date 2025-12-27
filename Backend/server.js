@@ -8,7 +8,10 @@ const router = require('./routes/dailyLogRoutes');
 //Middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true
+}));
 app.use('/logs', router);
 app.use('/auth', require('./routes/authRoutes'));
 

@@ -8,7 +8,7 @@ export default function Logs() {
     useEffect(() => {
         const fetchLogs = async () => {
             try {
-                const { data } = await axios.get('http://localhost:3000/logs');
+                const { data } = await axios.get(`${import.meta.env.VITE_BACKEND_BASEURL}/logs`);
                 dispatch(setAllLogs(data.data));
 
             }
