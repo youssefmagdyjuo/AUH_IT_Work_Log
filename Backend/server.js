@@ -9,12 +9,7 @@ const PORT = process.env.PORT || 3000;
 const FRONTEND_URL = process.env.FRONTEND_URL; // لازم يكون مسجل الدومين الصح للـ frontend
 
 // Middleware
-app.use(cors({
-    origin: FRONTEND_URL, // دومين الفرونت المحدد فقط
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
-}));
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

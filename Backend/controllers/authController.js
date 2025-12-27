@@ -63,12 +63,14 @@ const login = async (req, res) => {
         if (!isMatch) {
             return res.status(401).json({ message: "Invalid credentials" });
         }
+        console.log('no  errors ');
 
         const token = jwt.sign(
             { id: user._id, role: user.role },
             process.env.JWT_SECRET,
             { expiresIn: "7d" }
         );
+        console.log('created jwt');
 
         res.status(200).json({
             token,
@@ -78,9 +80,10 @@ const login = async (req, res) => {
                 role: user.role
             }
         });
-
+        console.log('reutn succesfully');
+        
     } catch (error) {
-        console.error("Login error:", error);
+        console.error("Login error:", error.message);
         res.status(500).json({ message: "Login error" });
     }
 };
