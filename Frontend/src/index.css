@@ -372,6 +372,10 @@ textarea:focus {
     padding: 1rem;
 
     }
+    form{
+        width: 90%;
+        padding: 30px;
+    }
     .logs_container {
         grid-template-columns: 1fr;
     }

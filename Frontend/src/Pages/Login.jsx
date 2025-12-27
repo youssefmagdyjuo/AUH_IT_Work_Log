@@ -33,7 +33,6 @@ export default function Login() {
                 <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
                 <Input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <Button name="Login" classStyle="btn_primary" type="submit"/>
-                <span className=' text-gray-500'>Dont have an account? <a href="/register">Register</a></span>
             </form>
         </div>
     )
