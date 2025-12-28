@@ -10,7 +10,7 @@ export default function Logs() {
             try {
                 const { data } = await axios.get(`${import.meta.env.VITE_BACKEND_BASEURL}/logs`);
                 dispatch(setAllLogs(data.data));
-
+                console.log(data.data);
             }
             catch (error) {
                 console.log(error);
@@ -34,7 +34,12 @@ export default function Logs() {
                                     <i class="fa-regular fa-clock"></i>
                                     {formattedDate}</p>
                                 <p><strong>Tasks:</strong> {log.tasks}</p>
-                                <p><strong>Notes:</strong> {log.notes}</p>
+                                <p><strong>Notes:</strong>
+                                {
+                                log.notes.split('\n').map((line, index) => (
+                                    <p key={index}>{line}</p>))
+                                }
+                                </p>
                             </div>
                         );
                     })
