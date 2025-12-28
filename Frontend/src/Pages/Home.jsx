@@ -30,8 +30,12 @@ export default function Home() {
 
     return (
         <div className='home_container'>
-            <h1>IT Work Log Application</h1>
-            <p>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</p>
+            <h1 className='title'>IT Work Log Application</h1>
+            <p className='text-gray-500 text-xs flex gap-4 justify-center items-center'>
+                <i class="fa-regular fa-clock"></i>
+
+                {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+            </p>
 
             <Textarea
                 value={log.tasks}
