@@ -33,7 +33,7 @@ export default function Login() {
         <div className="form_container">
             <form className="loginForm" onSubmit={handleLogin}>
                 <h2>Login</h2>
-                <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value.toLowerCase())} />
                 <Input placeholder="Password" type={isShow ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} >
                 {
                     isShow ? <i className="fa-solid fa-eye-slash text-gray-500" onClick={() => setIsShow(!isShow)}></i> : <i className="fa-solid fa-eye text-gray-500" onClick={() => setIsShow(!isShow)}></i>
