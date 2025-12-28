@@ -42,7 +42,7 @@ export default function Register() {
                 <Input 
                     placeholder="Username" 
                     value={username} 
-                    onChange={(e) => setUsername(e.target.value.toLowerCase())} 
+                    onChange={(e) => setUsername(e.target.value)} 
                 />
                 <Input 
                     placeholder="Password" 
