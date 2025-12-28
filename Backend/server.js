@@ -6,10 +6,15 @@ const app = express();
 const router = require('./routes/dailyLogRoutes');
 
 const PORT = process.env.PORT || 3000;
-const FRONTEND_URL = process.env.FRONTEND_URL; // لازم يكون مسجل الدومين الصح للـ frontend
+const FRONTEND_URL = process.env.FRONTEND_URL; 
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
