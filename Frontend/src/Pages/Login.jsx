@@ -2,10 +2,13 @@ import React from 'react'
 import Input from '../Components/Input'
 import Button from '../Components/Button'
 import axios from 'axios';
+import { useState } from 'react';
 
 export default function Login() {
-    const [username, setUsername] = React.useState("");
-    const [password, setPassword] = React.useState("");
+    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
+    const [isShow,setIsShow]= useState(false)
+
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
@@ -31,7 +34,11 @@ export default function Login() {
             <form className="loginForm" onSubmit={handleLogin}>
                 <h2>Login</h2>
                 <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                <Input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <Input placeholder="Password" type={isShow ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} >
+                {
+                    isShow ? <i className="fa-solid fa-eye-slash text-gray-500" onClick={() => setIsShow(!isShow)}></i> : <i className="fa-solid fa-eye text-gray-500" onClick={() => setIsShow(!isShow)}></i>
+                }
+                </Input>
                 <Button name="Login" classStyle="btn_primary" type="submit" />
             </form>
         </div>
