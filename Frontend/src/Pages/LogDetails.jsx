@@ -56,7 +56,7 @@ export default function LogDetails() {
                     </div>
                 </div>
             </div>
-                <div className='flex gap-4'>
+                {/* <div className='flex gap-4'>
                     <Button
                         disabled={log.tasks.trim() === '' && log.notes.trim() === ''}
                         classStyle={`btn_primary `}
@@ -67,7 +67,7 @@ export default function LogDetails() {
                         classStyle={`btn_dangery `}
                         name="Delete"
                     />
-                </div>
+                </div> */}
         </div>
     );
 }
