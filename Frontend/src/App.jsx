@@ -5,6 +5,7 @@ import Logs from "./Pages/Logs";
 import Register from "./Pages/Register";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Layout from "./Pages/Layout";
+import LogDetails from "./Pages/LogDetails";
 
 function App() {
   return (
@@ -24,6 +25,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Logs />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/logDetails/:id"
+            element={
+              <ProtectedRoute>
+                <LogDetails />
               </ProtectedRoute>
             }
           />

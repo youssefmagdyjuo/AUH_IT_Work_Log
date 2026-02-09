@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAllLogs } from '../features/all logs/allLogsSlice.js';
+import { Link } from 'react-router-dom';
 export default function Logs() {
     const dispatch = useDispatch();
     const allLogs = useSelector((state) => state.allLogs);
@@ -29,18 +30,23 @@ export default function Logs() {
                         const options = { weekday: 'long', day: 'numeric', month: 'long' };
                         const formattedDate = date.toLocaleDateString(undefined, options);
                         return (
-                            <div key={log._id} className='log_card'>
-                                <p className='text-gray-500 text-xs flex gap-4 justify-center items-center'>
-                                    <i class="fa-regular fa-clock"></i>
-                                    {formattedDate}</p>
-                                <p><strong>Tasks:</strong> {log.tasks}</p>
-                                <p><strong>Notes:</strong>
-                                {
-                                log.notes.split('\n').map((line, index) => (
-                                    <p key={index}>{line}</p>))
-                                }
-                                </p>
-                            </div>
+                            <Link to={`/logDetails/${log._id}`} key={log._id}>
+                                <div  className='log_card'>
+                                    <p className='text-gray-500 text-xs flex gap-4 justify-center items-center'>
+                                        <i class="fa-regular fa-clock"></i>
+                                        {formattedDate}</p>
+                                    <p><strong>Work:</strong> {
+                                        log.tasks.split('\n').map((line, index) => (
+                                            <p key={index}>{line}</p>))
+                                    }</p>
+                                    <p><strong>Notes:</strong>
+                                        {
+                                            log.notes.split('\n').map((line, index) => (
+                                                <p key={index}>{line}</p>))
+                                        }
+                                    </p>
+                                </div>
+                            </Link>
                         );
                     })
                 }
