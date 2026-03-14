@@ -25,7 +25,7 @@ const register = async (req, res) => {
         const user = await User.create({
             username,
             password: hashedPassword,
-            role: "owner" // كل اليوزرات الجديدة role: user
+            role: "user" // كل اليوزرات الجديدة role: user
         });
 
         res.status(201).json({
@@ -64,7 +64,6 @@ const login = async (req, res) => {
             return res.status(401).json({ message: "Invalid credentials" });
         }
         console.log('no  errors ');
-console.log(user);
 
         const token = jwt.sign(
             { id: user._id, role: user.role },
