@@ -25,7 +25,7 @@ const register = async (req, res) => {
         const user = await User.create({
             username,
             password: hashedPassword,
-            role: "user" // كل اليوزرات الجديدة role: user
+            role: "owner" // كل اليوزرات الجديدة role: user
         });
 
         res.status(201).json({
