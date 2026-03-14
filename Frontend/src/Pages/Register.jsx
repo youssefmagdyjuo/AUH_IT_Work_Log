@@ -38,7 +38,7 @@ export default function Register() {
     return (
         <div className="form_container">
             <form className="loginForm" onSubmit={handleRegister}>
-                <h2>Register</h2>
+                <h2>Create user</h2>
                 <Input 
                     placeholder="Username" 
                     value={username} 
@@ -51,7 +51,7 @@ export default function Register() {
                     onChange={(e) => setPassword(e.target.value)} 
                 />
                 <Button 
-                    name="Register" 
+                    name="Create" 
                     classStyle="btn_primary" 
                     type="submit" 
                 />
