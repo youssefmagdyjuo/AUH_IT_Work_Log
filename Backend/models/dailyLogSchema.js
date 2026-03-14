@@ -5,7 +5,9 @@ const dailyLogSchema = new Schema({
     date: { type: Date, required: false },
     // attendanceStatus: { type: String, required: true },
     tasks: { type: String, required: false },
-    notes: { type: String }
+    notes: { type: String },
+    // userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
+
 });
 
 

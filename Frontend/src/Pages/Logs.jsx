@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setAllLogs } from '../features/all logs/allLogsSlice.js';
 import { Link } from 'react-router-dom';
 export default function Logs() {
+    
     const dispatch = useDispatch();
     const allLogs = useSelector((state) => state.allLogs);
     useEffect(() => {
@@ -31,10 +32,14 @@ export default function Logs() {
                         const formattedDate = date.toLocaleDateString(undefined, options);
                         return (
                             <Link to={`/logDetails/${log._id}`} key={log._id}>
-                                <div  className='log_card'>
+                                <div className='log_card'>
                                     <p className='text-gray-500 text-xs flex gap-4 justify-center items-center'>
-                                        <i class="fa-regular fa-clock"></i>
-                                        {formattedDate}</p>
+                                        <div>
+                                            <i class="fa-regular fa-clock"></i>
+                                            {formattedDate}
+                                        </div>
+                                        {log.userId}
+                                    </p>
                                     <p><strong>Work:</strong> {
                                         log.tasks.split('\n').map((line, index) => (
                                             <p key={index}>{line}</p>))
